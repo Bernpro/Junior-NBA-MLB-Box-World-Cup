@@ -87,5 +87,10 @@ if st.button("🔮 Simular Partido NBA Now"):
                 title="Distribución de Puntos Obtenidos en las Simulaciones",
                 labels={"value": "Puntos Totales", "variable": "Equipos"}
             )
-            fig.update_layout(opacity=0.7)
+            
+            # TRUCO DE CORRECCIÓN: En Plotly 6.x la opacidad se aplica en los traces, no en el layout
+            fig.update_traces(opacity=0.7)
+            
+            # Pintamos la gráfica en la pantalla web
             st.plotly_chart(fig, use_container_width=True)
+
